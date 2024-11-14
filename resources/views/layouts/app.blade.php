@@ -480,10 +480,15 @@
             </div>
             @endguest
             
-            <a href="wishlist.html" class="header-tools__item">
+            <a href="{{route('wishlist.index')}}" class="header-tools__item header-tools__cart">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <use href="#icon_heart" />
               </svg>
+              @if (Cart::instance('wishlist')->content()->count() > 0)
+              <span class="cart-amount d-block position-absolute js-cart-items-count">
+                {{Cart::instance('wishlist')->content()->count()}}
+              </span>
+              @endif
             </a>
   
             <a href="{{route('cart.index')}}" class="header-tools__item header-tools__cart">
@@ -671,6 +676,8 @@
     <script src="{{ asset('assets/js/theme.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/plugins/bootstrap-slider.min.js')}}"></script>
+    <script src="{{ asset('assets/js/theme.js')}}"></script>
     @stack('scripts')
   </body>
   

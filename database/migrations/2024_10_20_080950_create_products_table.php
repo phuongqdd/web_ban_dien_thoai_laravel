@@ -22,9 +22,9 @@ return new class extends Migration
             // Mô tả chi tiết sản phẩm
             $table->text('description');
             // Giá bán gốc
-            $table->decimal('regular_price');
+            $table->bigInteger('regular_price');
             // Giá bán sau giảm giá (nếu có), không bắt buộc
-            $table->decimal('sale_price')->nullable();
+            $table->bigInteger('sale_price')->nullable();
             // Mã SKU (Stock Keeping Unit) để quản lý sản phẩm
             $table->string('SKU');
             // Trạng thái tồn kho (còn hàng hoặc hết hàng)
