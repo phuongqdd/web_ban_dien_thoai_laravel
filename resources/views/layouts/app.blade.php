@@ -257,7 +257,7 @@
       }
   
       .logo__image {
-        max-width: 220px;
+        max-width: 50px;
       }
     </style>
     <div class="header-mobile header_sticky">
@@ -271,7 +271,7 @@
   
         <div class="logo">
           <a href="{{route('home.index')}}">
-            <img src="{{ asset('assets/images/logo.png')}}" alt="Uomo" class="logo__image d-block" />
+            <img src="{{ asset('assets/images/logo.png')}}" alt="Uomo" height="20px" />
           </a>
         </div>
   
@@ -315,9 +315,6 @@
               </li>
               <li class="navigation__item">
                 <a href="{{route('cart.index')}}" class="navigation__link">Cart</a>
-              </li>
-              <li class="navigation__item">
-                <a href="about.html" class="navigation__link">About</a>
               </li>
               <li class="navigation__item">
                 <a href="{{route('home.contact')}}" class="navigation__link">Contact</a>
@@ -404,9 +401,6 @@
               </li>
               <li class="navigation__item">
                 <a href="{{route('cart.index')}}" class="navigation__link">Cart</a>
-              </li>
-              <li class="navigation__item">
-                <a href="about.html" class="navigation__link">About</a>
               </li>
               <li class="navigation__item">
                 <a href="{{route('home.contact')}}" class="navigation__link">Contact</a>
@@ -503,6 +497,21 @@
               </span>
               @endif
             </a>
+            
+                        <!-- Icon Logout -->
+            <a href="{{ route('logout') }}" 
+            class="header-tools__item header-tools__logout" 
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+            </svg>
+            </a>
+
+            <!-- Form Logout -->
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
           </div>
         </div>
       </div>
@@ -510,116 +519,10 @@
     @yield('content')
   
   
-    <hr class="mt-5 text-secondary" />
     <footer class="footer footer_type_2">
-      <div class="footer-middle container">
-        <div class="row row-cols-lg-5 row-cols-2">
-          <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
-            <div class="logo">
-              <a href="{{route('home.index')}}">
-                <img src="{{ asset('assets/images/logo.png')}}" alt="SurfsideMedia" class="logo__image d-block" />
-              </a>
-            </div>
-            <p class="footer-address">123 Beach Avenue, Surfside City, CA 00000</p>
-            <p class="m-0"><strong class="fw-medium">contact@surfsidemedia.in</strong></p>
-            <p><strong class="fw-medium">+1 000-000-0000</strong></p>
-  
-            <ul class="social-links list-unstyled d-flex flex-wrap mb-0">
-              <li>
-                <a href="#" class="footer__social-link d-block">
-                  <svg class="svg-icon svg-icon_facebook" width="9" height="15" viewBox="0 0 9 15"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_facebook" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__social-link d-block">
-                  <svg class="svg-icon svg-icon_twitter" width="14" height="13" viewBox="0 0 14 13"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_twitter" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__social-link d-block">
-                  <svg class="svg-icon svg-icon_instagram" width="14" height="13" viewBox="0 0 14 13"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_instagram" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__social-link d-block">
-                  <svg class="svg-icon svg-icon_youtube" width="16" height="11" viewBox="0 0 16 11"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M15.0117 1.8584C14.8477 1.20215 14.3281 0.682617 13.6992 0.518555C12.5234 0.19043 7.875 0.19043 7.875 0.19043C7.875 0.19043 3.19922 0.19043 2.02344 0.518555C1.39453 0.682617 0.875 1.20215 0.710938 1.8584C0.382812 3.00684 0.382812 5.46777 0.382812 5.46777C0.382812 5.46777 0.382812 7.90137 0.710938 9.07715C0.875 9.7334 1.39453 10.2256 2.02344 10.3896C3.19922 10.6904 7.875 10.6904 7.875 10.6904C7.875 10.6904 12.5234 10.6904 13.6992 10.3896C14.3281 10.2256 14.8477 9.7334 15.0117 9.07715C15.3398 7.90137 15.3398 5.46777 15.3398 5.46777C15.3398 5.46777 15.3398 3.00684 15.0117 1.8584ZM6.34375 7.68262V3.25293L10.2266 5.46777L6.34375 7.68262Z" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="footer__social-link d-block">
-                  <svg class="svg-icon svg-icon_pinterest" width="14" height="15" viewBox="0 0 14 15"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <use href="#icon_pinterest" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-  
-          <div class="footer-column footer-menu mb-4 mb-lg-0">
-            <h6 class="sub-menu__title text-uppercase">Company</h6>
-            <ul class="sub-menu__list list-unstyled">
-              <li class="sub-menu__item"><a href="about-2.html" class="menu-link menu-link_us-s">About Us</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Careers</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Affiliates</a></li>
-              <li class="sub-menu__item"><a href="blog_list1.html" class="menu-link menu-link_us-s">Blog</a></li>
-              <li class="sub-menu__item"><a href="contact-2.html" class="menu-link menu-link_us-s">Contact Us</a></li>
-            </ul>
-          </div>
-  
-          <div class="footer-column footer-menu mb-4 mb-lg-0">
-            <h6 class="sub-menu__title text-uppercase">Shop</h6>
-            <ul class="sub-menu__list list-unstyled">
-              <li class="sub-menu__item"><a href="shop2.html" class="menu-link menu-link_us-s">New Arrivals</a></li>
-              <li class="sub-menu__item"><a href="shop3.html" class="menu-link menu-link_us-s">Accessories</a></li>
-              <li class="sub-menu__item"><a href="shop4.html" class="menu-link menu-link_us-s">Men</a></li>
-              <li class="sub-menu__item"><a href="shop5.html" class="menu-link menu-link_us-s">Women</a></li>
-              <li class="sub-menu__item"><a href="shop1.html" class="menu-link menu-link_us-s">Shop All</a></li>
-            </ul>
-          </div>
-  
-          <div class="footer-column footer-menu mb-4 mb-lg-0">
-            <h6 class="sub-menu__title text-uppercase">Help</h6>
-            <ul class="sub-menu__list list-unstyled">
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Customer Service</a></li>
-              <li class="sub-menu__item"><a href="account_dashboard.html" class="menu-link menu-link_us-s">My Account</a>
-              </li>
-              <li class="sub-menu__item"><a href="store_location.html" class="menu-link menu-link_us-s">Find a Store</a>
-              </li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Legal & Privacy</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Gift Card</a></li>
-            </ul>
-          </div>
-  
-          <div class="footer-column footer-menu mb-4 mb-lg-0">
-            <h6 class="sub-menu__title text-uppercase">Categories</h6>
-            <ul class="sub-menu__list list-unstyled">
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shirts</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Jeans</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shoes</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Bags</a></li>
-              <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shop All</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  
       <div class="footer-bottom">
         <div class="container d-md-flex align-items-center">
-          <span class="footer-copyright me-auto">©2024 Surfside Media</span>
+          <span class="footer-copyright me-auto">©2024 Phúc Nguyễn</span>
           <div class="footer-settings d-md-flex align-items-center">
             <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms &amp;
               Conditions</a>

@@ -63,46 +63,7 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="d-flex justify-content-between mb-4 pb-md-2">
-            <div class="breadcrumb mb-0 d-none d-md-block flex-grow-1">
-              <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium">Home</a>
-              <span class="breadcrumb-separator menu-link fw-medium ps-1 pe-1">/</span>
-              <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium">The Shop</a>
-            </div><!-- /.breadcrumb -->
-
-            <div
-              class="product-single__prev-next d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1">
-              <a href="#" class="text-uppercase fw-medium"><svg width="10" height="10" viewBox="0 0 25 25"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_prev_md" />
-                </svg><span class="menu-link menu-link_us-s">Prev</span></a>
-              <a href="#" class="text-uppercase fw-medium"><span class="menu-link menu-link_us-s">Next</span><svg
-                  width="10" height="10" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_next_md" />
-                </svg></a>
-            </div><!-- /.shop-acs -->
-          </div>
           <h1 class="product-single__name">{{$product->name}}</h1>
-          <div class="product-single__rating">
-            <div class="reviews-group d-flex">
-              <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                <use href="#icon_star" />
-              </svg>
-              <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                <use href="#icon_star" />
-              </svg>
-              <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                <use href="#icon_star" />
-              </svg>
-              <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                <use href="#icon_star" />
-              </svg>
-              <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                <use href="#icon_star" />
-              </svg>
-            </div>
-            <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
-          </div>
           <div class="product-single__price">
             <span class="current-price">
                 @if ($product->sale_price)
